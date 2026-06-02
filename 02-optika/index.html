@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Интерференция N щелей</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="visual-section">
+        <div class="topbar">
+          <div>
+            <h1>Интерференция от N щелей</h1>
+            <p>Фраунгоферова дифракция, монохроматический и квазимонохроматический свет</p>
+          </div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric"><span>Δy = Lλ/d</span><strong id="fringeSpacing">—</strong></div>
+          <div class="metric"><span>Режим</span><strong id="lightKind">—</strong></div>
+        </div>
+
+        <div class="plot-panel">
+          <canvas id="profileCanvas" aria-label="График I(y)"></canvas>
+        </div>
+        <div class="plot-panel color-panel">
+          <canvas id="colorCanvas" aria-label="Цветная интерференционная полоса"></canvas>
+        </div>
+      </section>
+
+      <aside class="control-panel">
+        <section class="control-group">
+          <h2>Решётка</h2>
+          <label class="control-row">
+            <span>N</span>
+            <input id="slitsRange" type="range" min="1" max="10" step="1" value="5" />
+            <input id="slits" type="number" min="1" max="10" step="1" value="5" />
+          </label>
+          <label class="control-row">
+            <span>a, мкм</span>
+            <input id="slitWidthRange" type="range" min="5" max="80" step="1" value="20" />
+            <input id="slitWidthUm" type="number" min="5" max="80" step="1" value="20" />
+          </label>
+          <label class="control-row">
+            <span>d, мкм</span>
+            <input id="periodUmRange" type="range" min="40" max="250" step="5" value="100" />
+            <input id="periodUm" type="number" min="40" max="250" step="5" value="100" />
+          </label>
+          <label class="control-row">
+            <span>L, м</span>
+            <input id="screenDistanceRange" type="range" min="0.3" max="3" step="0.1" value="1" />
+            <input id="screenDistance" type="number" min="0.3" max="3" step="0.1" value="1" />
+          </label>
+        </section>
+
+        <section class="control-group">
+          <h2>Свет</h2>
+          <label class="control-row">
+            <span>λ₀, нм</span>
+            <input id="wavelengthRange" type="range" min="380" max="780" step="1" value="550" />
+            <input id="wavelengthNm" type="number" min="380" max="780" step="1" value="550" />
+          </label>
+          <label class="control-row">
+            <span>Δλ, нм</span>
+            <input id="bandwidthRange" type="range" min="0" max="120" step="1" value="0" />
+            <input id="bandwidthNm" type="number" min="0" max="120" step="1" value="0" />
+          </label>
+          <label class="control-row">
+            <span>половина экрана, мм</span>
+            <input id="screenHalfWidthRange" type="range" min="10" max="60" step="1" value="30" />
+            <input id="screenHalfWidthMm" type="number" min="10" max="60" step="1" value="30" />
+          </label>
+        </section>
+      </aside>
+    </main>
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

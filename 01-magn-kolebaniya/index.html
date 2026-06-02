@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Связанные маятники</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="visual-section">
+        <div class="topbar">
+          <div>
+            <h1>Связанные маятники</h1>
+            <p>Численное решение уравнений движения (RK4)</p>
+          </div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric"><span>ω₋</span><strong id="omegaMinus">—</strong></div>
+          <div class="metric"><span>ω₊</span><strong id="omegaPlus">—</strong></div>
+          <div class="metric"><span>Частота биений</span><strong id="beatFreq">—</strong></div>
+        </div>
+
+        <div class="plot-panel">
+          <canvas id="angleCanvas" aria-label="График углов"></canvas>
+        </div>
+        <div class="plot-panel">
+          <canvas id="speedCanvas" aria-label="График угловых скоростей"></canvas>
+        </div>
+      </section>
+
+      <aside class="control-panel">
+        <section class="control-group">
+          <h2>Параметры</h2>
+          <label class="control-row">
+            <span>m, кг</span>
+            <input id="massRange" type="range" min="0.1" max="2" step="0.05" value="0.5" />
+            <input id="mass" type="number" min="0.1" max="2" step="0.05" value="0.5" />
+          </label>
+          <label class="control-row">
+            <span>L, м</span>
+            <input id="lengthRange" type="range" min="0.3" max="2" step="0.05" value="1" />
+            <input id="length" type="number" min="0.3" max="2" step="0.05" value="1" />
+          </label>
+          <label class="control-row">
+            <span>L₁, м</span>
+            <input id="springDistanceRange" type="range" min="0.1" max="1.5" step="0.05" value="0.6" />
+            <input id="springDistance" type="number" min="0.1" max="1.5" step="0.05" value="0.6" />
+          </label>
+          <label class="control-row">
+            <span>k, Н/м</span>
+            <input id="springStiffnessRange" type="range" min="1" max="120" step="1" value="20" />
+            <input id="springStiffness" type="number" min="1" max="120" step="1" value="20" />
+          </label>
+          <label class="control-row">
+            <span>β, кг/с</span>
+            <input id="dampingRange" type="range" min="0" max="0.5" step="0.01" value="0.05" />
+            <input id="damping" type="number" min="0" max="0.5" step="0.01" value="0.05" />
+          </label>
+        </section>
+
+        <section class="control-group">
+          <h2>Начальные условия</h2>
+          <label class="control-row">
+            <span>θ₁(0), рад</span>
+            <input id="theta1InitialRange" type="range" min="-0.5" max="0.5" step="0.01" value="0.15" />
+            <input id="theta1Initial" type="number" min="-0.5" max="0.5" step="0.01" value="0.15" />
+          </label>
+          <label class="control-row">
+            <span>θ₂(0), рад</span>
+            <input id="theta2InitialRange" type="range" min="-0.5" max="0.5" step="0.01" value="0" />
+            <input id="theta2Initial" type="number" min="-0.5" max="0.5" step="0.01" value="0" />
+          </label>
+          <label class="control-row">
+            <span>T, с</span>
+            <input id="durationRange" type="range" min="5" max="60" step="1" value="30" />
+            <input id="duration" type="number" min="5" max="60" step="1" value="30" />
+          </label>
+        </section>
+      </aside>
+    </main>
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
