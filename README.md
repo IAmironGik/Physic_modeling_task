@@ -52,14 +52,13 @@ cd 02-optika && python3 generate_figures.py && tectonic report.tex
 
 ## GitHub Pages — первый запуск
 
-После push в `main`:
+**Перед первым деплоем** (один раз вручную):
 
-1. Открой **Settings → Pages** в репозитории на GitHub
-2. В **Build and deployment → Source** выбери **GitHub Actions**
-3. Workflow `.github/workflows/deploy-pages.yml` опубликует сайт автоматически
+1. Открой репозиторий → **Settings → Pages**
+2. **Build and deployment → Source** → выбери **GitHub Actions**
+3. Запушь в `main` или нажми **Actions → Deploy GitHub Pages → Run workflow**
 
-Сайт будет доступен по адресу:  
-**https://iamirongik.github.io/Physic_modeling_task/**
+Сайт: **https://iamirongik.github.io/Physic_modeling_task/**
 
 ## Что внутри каждого модуля
 
