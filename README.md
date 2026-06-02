@@ -14,56 +14,6 @@
 | **Магнитные колебания** | Связанные маятники | [**Открыть →**](https://iamirongik.github.io/Physic_modeling_task/01-magn-kolebaniya/) | [PDF](https://iamirongik.github.io/Physic_modeling_task/01-magn-kolebaniya/report.pdf) |
 | **Оптика** | Интерференция N щелей | [**Открыть →**](https://iamirongik.github.io/Physic_modeling_task/02-optika/) | [PDF](https://iamirongik.github.io/Physic_modeling_task/02-optika/report.pdf) |
 
-**Главная страница:** [iamirongik.github.io/Physic_modeling_task](https://iamirongik.github.io/Physic_modeling_task/)
-
----
-
-## Структура проекта
-
-```
-Physic_modeling_task/
-├── index.html              ← главная страница (GitHub Pages)
-├── 01-magn-kolebaniya/     ← Задача 4: связанные маятники
-└── 02-optika/              ← Задача 1: интерференция N щелей
-```
-
-## Локальный запуск
-
-```bash
-cd 01-magn-kolebaniya && python3 -m http.server 5173   # → localhost:5173
-cd 02-optika && python3 -m http.server 8000            # → localhost:8000
-```
-
-## Тесты
-
-```bash
-cd 01-magn-kolebaniya && node --test
-cd 02-optika && node --test
-```
-
-## Сборка отчётов (PDF)
-
-```bash
-brew install tectonic          # один раз, если ещё нет
-
-cd 01-magn-kolebaniya && python3 generate_figures.py && tectonic report.tex
-cd 02-optika && python3 generate_figures.py && tectonic report.tex
-```
-
-## GitHub Pages — первый запуск
-
-**1. Включи Pages (один раз):**
-
-Settings → **Pages** → **Build and deployment** → **Source: Deploy from a branch**
-
-- Branch: **`gh-pages`**
-- Folder: **`/ (root)`**
-- Save
-
-**2. Запуш в `main`** — workflow создаст ветку `gh-pages` и зальёт туда сайт.
-
-Или вручную: **Actions → Deploy GitHub Pages → Run workflow**
-
 Сайт: **https://iamirongik.github.io/Physic_modeling_task/**
 
 ## Что внутри каждого модуля
