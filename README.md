@@ -52,11 +52,17 @@ cd 02-optika && python3 generate_figures.py && tectonic report.tex
 
 ## GitHub Pages — первый запуск
 
-**Перед первым деплоем** (один раз вручную):
+**1. Включи Pages (один раз):**
 
-1. Открой репозиторий → **Settings → Pages**
-2. **Build and deployment → Source** → выбери **GitHub Actions**
-3. Запушь в `main` или нажми **Actions → Deploy GitHub Pages → Run workflow**
+Settings → **Pages** → **Build and deployment** → **Source: Deploy from a branch**
+
+- Branch: **`gh-pages`**
+- Folder: **`/ (root)`**
+- Save
+
+**2. Запуш в `main`** — workflow создаст ветку `gh-pages` и зальёт туда сайт.
+
+Или вручную: **Actions → Deploy GitHub Pages → Run workflow**
 
 Сайт: **https://iamirongik.github.io/Physic_modeling_task/**
 
