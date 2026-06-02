@@ -1,0 +1,49 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare site
+        run: |
+          mkdir -p _site/01-magn-kolebaniya _site/02-optika
+          cp index.html _site/
+          cp 01-magn-kolebaniya/index.html 01-magn-kolebaniya/styles.css _site/01-magn-kolebaniya/
+          cp -r 01-magn-kolebaniya/src _site/01-magn-kolebaniya/
+          cp 02-optika/index.html _site/02-optika/
+          cp -r 02-optika/src _site/02-optika/
+          cp 01-magn-kolebaniya/report.pdf _site/01-magn-kolebaniya/ 2>/dev/null || true
+          cp 02-optika/report.pdf _site/02-optika/ 2>/dev/null || true
+          touch _site/.nojekyll
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

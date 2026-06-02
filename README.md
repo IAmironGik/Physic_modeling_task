@@ -2,17 +2,32 @@
 
 **Георгий Габатов, M3203** · преподаватель: Шоев И. В.
 
-Репозиторий: [github.com/IAmironGik/Physic_modeling_task](https://github.com/IAmironGik/Physic_modeling_task)
+[![GitHub Pages](https://img.shields.io/badge/🌐_демо_онлайн-открыть-2563eb?style=for-the-badge)](https://iamirongik.github.io/Physic_modeling_task/)
+[![Repo](https://img.shields.io/badge/GitHub-репозиторий-181717?style=for-the-badge&logo=github)](https://github.com/IAmironGik/Physic_modeling_task)
 
-Два модуля вычислительного практикума — **по одной задаче** в каждом.
+---
+
+## 🌐 Онлайн-демо (GitHub Pages)
+
+| Модуль | Задача | Демо | Отчёт PDF |
+|--------|--------|------|-----------|
+| **Магнитные колебания** | Связанные маятники | [**Открыть →**](https://iamirongik.github.io/Physic_modeling_task/01-magn-kolebaniya/) | [PDF](https://iamirongik.github.io/Physic_modeling_task/01-magn-kolebaniya/report.pdf) |
+| **Оптика** | Интерференция N щелей | [**Открыть →**](https://iamirongik.github.io/Physic_modeling_task/02-optika/) | [PDF](https://iamirongik.github.io/Physic_modeling_task/02-optika/report.pdf) |
+
+**Главная страница:** [iamirongik.github.io/Physic_modeling_task](https://iamirongik.github.io/Physic_modeling_task/)
+
+---
+
+## Структура проекта
 
 ```
 Physic_modeling_task/
+├── index.html              ← главная страница (GitHub Pages)
 ├── 01-magn-kolebaniya/     ← Задача 4: связанные маятники
 └── 02-optika/              ← Задача 1: интерференция N щелей
 ```
 
-## Запуск демо
+## Локальный запуск
 
 ```bash
 cd 01-magn-kolebaniya && python3 -m http.server 5173   # → localhost:5173
@@ -26,7 +41,7 @@ cd 01-magn-kolebaniya && node --test
 cd 02-optika && node --test
 ```
 
-## Отчёты (PDF)
+## Сборка отчётов (PDF)
 
 ```bash
 brew install tectonic          # один раз, если ещё нет
@@ -35,15 +50,24 @@ cd 01-magn-kolebaniya && python3 generate_figures.py && tectonic report.tex
 cd 02-optika && python3 generate_figures.py && tectonic report.tex
 ```
 
-Готовые файлы: `01-magn-kolebaniya/report.pdf`, `02-optika/report.pdf`.
+## GitHub Pages — первый запуск
+
+После push в `main`:
+
+1. Открой **Settings → Pages** в репозитории на GitHub
+2. В **Build and deployment → Source** выбери **GitHub Actions**
+3. Workflow `.github/workflows/deploy-pages.yml` опубликует сайт автоматически
+
+Сайт будет доступен по адресу:  
+**https://iamirongik.github.io/Physic_modeling_task/**
 
 ## Что внутри каждого модуля
 
 | Файл / папка | Назначение |
 |--------------|------------|
-| `index.html` | Открыть в браузере |
+| `index.html` | Интерактивное демо |
 | `src/` | Код программы |
 | `tests/` | Автотесты |
 | `figures/` | Картинки для отчёта |
-| `report.tex` | Отчёт → PDF |
+| `report.tex` / `report.pdf` | Отчёт |
 | `generate_figures.py` | Пересборка рисунков |
